@@ -64,5 +64,11 @@
     "name": "Elvis Presley",
     "email": "Elvis@mail.com",
     "phone": "233-34-54"
+  },
+  {
+    "contactId": "db497cfe-0b5c-47ef-8d44-543c74dc36fe",
+    "name": "Elton Stalone",
+    "email": "Stalone@mail.com",
+    "phone": "233-24-26"
   }
 ]

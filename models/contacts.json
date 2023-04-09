@@ -76,5 +76,11 @@
     "name": "Elton John",
     "email": "Elton@mail.com",
     "phone": "233-24-56"
+  },
+  {
+    "id": "aaa89994-37a6-455b-a7e1-2d917b623c8f",
+    "name": "Rihana",
+    "email": "Rihana@mail.com",
+    "phone": "234-24-56"
   }
 ]

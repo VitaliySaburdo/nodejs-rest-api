@@ -70,5 +70,11 @@
     "name": "Elton Stalone",
     "email": "Stalone@mail.com",
     "phone": "233-24-26"
+  },
+  {
+    "id": "27f9750b-6ba4-4d8f-94ea-0ee48adcb79e",
+    "name": "Elton John",
+    "email": "Elton@mail.com",
+    "phone": "233-24-56"
   }
 ]

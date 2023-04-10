@@ -3,7 +3,7 @@ const { HttpError } = require("../helpers");
 const validateBody = (schema) => {
   const func = (req, res, next) => {
     if (Object.keys(req.body).length === 0) {
-      throw HttpError(404, "missing fields");
+      throw HttpError(400, "missing fields");
     }
     const { error } = schema.validate(req.body);
     if (error) {

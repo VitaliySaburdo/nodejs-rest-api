@@ -11,14 +11,13 @@ const getContactsById = async (req, res) => {
   const { contactId } = req.params;
   const result = await contacts.getContactById(contactId);
   if (!result) {
-    throw HttpError(404, "Not Found");
+    throw HttpError(404, `Product with id ${contactId} not found`);
   }
   res.json(result);
 };
 
 const createContact = async (req, res) => {
   const result = await contacts.addContact(req.body);
-  console.log(result.name);
   res.status(201).json(result);
 };
 
@@ -34,6 +33,7 @@ const deleteContact = async (req, res) => {
 const changeContactById = async (req, res) => {
   const { contactId } = req.params;
   const result = await contacts.updateContact(contactId, req.body);
+
   if (!result) {
     throw HttpError(404, "Not Found");
   }

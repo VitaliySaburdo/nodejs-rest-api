@@ -4,8 +4,7 @@ const validateCreateBody = (schema) => {
   const func = (req, res, next) => {
     const requiredFiels = ["name", "email", "phone"];
     const missingFields = requiredFiels.filter((field) => !req.body[field]);
-    console.log(missingFields);
-    if (missingFields) {
+    if (missingFields.length) {
       next(
         HttpError(400, `missing required ${missingFields.join(", ")} field`)
       );

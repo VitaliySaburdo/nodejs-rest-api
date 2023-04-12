@@ -52,9 +52,9 @@ const updateContact = async (contactId, body) => {
   }
   contacts.forEach((contact) => {
     if (contact.id === contactId) {
-      contact.name = name;
-      contact.email = email;
-      contact.phone = phone;
+      if (name) contact.name = name;
+      if (email) contact.email = email;
+      if (phone) contact.phone = phone;
     }
   });
   await fs.writeFile(contactsPath, JSON.stringify(contacts));

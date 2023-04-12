@@ -33,9 +33,8 @@ const deleteContact = async (req, res) => {
 const changeContactById = async (req, res) => {
   const { contactId } = req.params;
   const result = await contacts.updateContact(contactId, req.body);
-
   if (!result) {
-    throw HttpError(404, "Not Found");
+    throw HttpError(404, `Product with id ${contactId} not found`);
   }
   res.status(200).json(result);
 };

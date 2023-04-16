@@ -4,6 +4,7 @@ const addShema = Joi.object({
   name: Joi.string().required(),
   email: Joi.string().email().required(),
   phone: Joi.string().required(),
+  favorite: Joi.boolean(),
 });
 const changeShema = Joi.object({
   name: Joi.string(),
@@ -11,7 +12,12 @@ const changeShema = Joi.object({
   phone: Joi.string(),
 });
 
+const upDateFavoriteSchema = Joi.object({
+  favorite: Joi.boolean().required(),
+});
+
 module.exports = {
   addShema,
   changeShema,
+  upDateFavoriteSchema,
 };

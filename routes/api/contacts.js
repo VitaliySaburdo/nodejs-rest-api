@@ -8,6 +8,7 @@ const {
   validateBody,
   validateCreateBody,
   isValidId,
+  validatePatchBody,
 } = require("../../middlewares");
 
 const schemas = require("../../schemas/contacts");
@@ -30,7 +31,7 @@ router.put(
 router.patch(
   "/:id/favorite",
   isValidId,
-  validateBody(schemas.upDateFavoriteSchema),
+  validatePatchBody(schemas.upDateFavoriteSchema),
   ctrl.upDateFavorite
 );
 

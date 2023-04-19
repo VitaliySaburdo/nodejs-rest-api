@@ -21,6 +21,15 @@ const userShema = new Schema(
       minlength: 6,
       required: [true, "Password is required"],
     },
+    subscription: {
+      type: String,
+      enum: ["starter", "pro", "business"],
+      default: "starter",
+    },
+    token: {
+      type: String,
+      default: "",
+    },
   },
   { versionKey: false }
 );

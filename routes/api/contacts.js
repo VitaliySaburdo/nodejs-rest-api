@@ -9,20 +9,27 @@ const {
   validateCreateBody,
   isValidId,
   validatePatchBody,
+  authenticate,
 } = require("../../middlewares");
 
-const schemas = require("../../schemas/contacts");
+const { schemas } = require("../../models/contact");
 
-router.get("/", ctrl.getAllContacts);
+router.get("/", authenticate, ctrl.getAllContacts);
 
-router.get("/:id", isValidId, ctrl.getContactsById);
+router.get("/:id", authenticate, isValidId, ctrl.getContactsById);
 
-router.post("/", validateCreateBody(schemas.addShema), ctrl.createContact);
+router.post(
+  "/",
+  authenticate,
+  validateCreateBody(schemas.addShema),
+  ctrl.createContact
+);
 
-router.delete("/:id", isValidId, ctrl.deleteContact);
+router.delete("/:id", authenticate, isValidId, ctrl.deleteContact);
 
 router.put(
   "/:id",
+  authenticate,
   isValidId,
   validateBody(schemas.changeShema),
   ctrl.changeContactById

@@ -35,7 +35,7 @@ const register = async (req, res) => {
 
   const veryfyEmail = {
     to: email,
-    subject: "Veryfy email",
+    subject: "Veryfy new email",
     html: `<a target="_blank" href="${BASE_URL}/users/verify${verificationCode}">Click verify email</a>`,
   };
 
@@ -66,8 +66,8 @@ const resendVerifyEmail = async (req, res) => {
   const { email } = req.body;
 
   const user = await User.findOne({ email });
-  if (!email) {
-    throw HttpError(400, "missing required field email");
+  if (user.verify) {
+    throw HttpError(400, "Verification has already been passed");
   }
 
   if (!user) {

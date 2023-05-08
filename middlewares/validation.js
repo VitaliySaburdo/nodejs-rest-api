@@ -2,6 +2,10 @@ const { HttpError } = require("../helpers");
 
 const validateBody = (schema) => {
   const func = (req, res, next) => {
+    const { email } = req.body;
+    if (!email) {
+      throw HttpError(400, "missing required field email");
+    }
     if (Object.keys(req.body).length === 0) {
       throw HttpError(400, "missing fields");
     }
@@ -14,4 +18,4 @@ const validateBody = (schema) => {
   return func;
 };
 
-module.exports =  validateBody ;
+module.exports = validateBody;

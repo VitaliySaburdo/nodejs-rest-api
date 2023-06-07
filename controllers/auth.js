@@ -33,13 +33,13 @@ const register = async (req, res) => {
     verificationCode,
   });
 
-  const veryfyEmail = {
+  const verifyEmail = {
     to: email,
-    subject: "Veryfy new email",
+    subject: "Verify new email",
     html: `<a target="_blank" href="${BASE_URL}/users/verify/${verificationCode}">Click verify email</a>`,
   };
 
-  await sendEmail(veryfyEmail);
+  await sendEmail(verifyEmail);
 
   res.status(201).json({
     user: {
@@ -77,13 +77,13 @@ const resendVerifyEmail = async (req, res) => {
     throw HttpError(401, "Email is already verified");
   }
 
-  const veryfyEmail = {
+  const verifyEmail = {
     to: email,
     subject: "Veryfy email",
     html: `<a target="_blank" href="${BASE_URL}/users/verify${user.verificationCode}">Click verify email</a>`,
   };
 
-  await sendEmail(veryfyEmail);
+  await sendEmail(verifyEmail);
 
   res.status(200).json({
     message: "Verification email sent",
